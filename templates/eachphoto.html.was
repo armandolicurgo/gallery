@@ -1,0 +1,150 @@
+<!--  templates/eachphoto.html  -->
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="/static/{{filename}}">
+      <img src="/static/{{filename}}" alt="Uploaded at {{date}}" width="600" height="400">
+    </a>
+  <div class="desc"> 
+
+{% if istheowner %}
+<!--  templates/eachphoto.html istheowner  -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.fa {
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.fa:hover {
+  color: darkblue;
+}
+</style>
+
+
+<p></p>
+
+<i onclick="a{{objectid}}(this)"  class="fa fa-eye"></i>
+
+
+<script>
+
+function a{{objectid}}(x) {
+    
+//x.classList.toggle("fa-thumbs-down");
+
+approvePhoto("{{objectid}}") ;  
+x.classList.toggle("fa-eye");
+}
+</script>
+
+
+
+<!---
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.fa {
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.fa:hover {
+  color: darkblue;
+}
+</style>
+
+
+<p></p>
+
+<i onclick="b{{objectid}}(this)"  class="fa fa-thumbs-up"></i>
+
+
+<script>
+
+function b{{objectid}}(x) {
+    
+disapprovePhoto("{{objectid}}") ;  
+x.classList.toggle("fa-thumbs-down");
+}
+</script>
+
+
+
+-->
+
+
+{% else %}
+
+<!--  templates/eachphoto.html not istheowner  -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.fa {
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.fa:hover {
+  color: darkblue;
+}
+</style>
+
+
+<p></p>
+
+<i onclick="c{{objectid}}(this)"  class="fa fa-thumbs-up"></i>
+
+
+<script>
+
+function c{{objectid}}(x) {
+    
+likePhoto("{{objectid}}");  
+x.classList.toggle("fa-eye-slash");
+}
+</script>
+
+
+<style>
+.fa {
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.fa:hover {
+  color: darkblue;
+}
+</style>
+
+
+
+<p></p>
+<p id="re{{objectid}}">  {{likes}} likes</p> 
+
+
+
+{% endif %}
+
+
+
+
+
+
+<br>
+
+
+   Posted by {{user}} at {{date}}</div>
+
+  </div>
+</div>
+
+
